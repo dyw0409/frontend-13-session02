@@ -11,13 +11,51 @@
   <input id="num1" type="number">
   <input id="num2" type="number"><br><br>
 
-  <button>+</button>
-  <button>−</button>
-  <button>×</button>
-  <button>÷</button>
+  <button id="add" onclick="check(this)">+</button>
+  <button id="sub" onclick="check(this)">−</button>
+  <button id="mul" onclick="check(this)">×</button>
+  <button id="div" onclick="check(this)">÷</button>
 
   <p id="result"></p>
 
-  <script src="index.js"></script>
+  <script>
+    const num1 = document.getElementById("num1");
+    const num2 = document.getElementById("num2");
+    const output = document.getElementById("result");
+    
+    function check(btn){
+      const x = Number(num1.value);
+      const y = Number(num2.value);
+      if(isNaN(x) ===true || isNaN(y)===true || x===0 || y===0){
+        output.textContent = "숫자인지 확인해주세요"
+      }else(
+        Calculater(btn,x,y)
+      )    
+    }
+
+    function Calculater(btn,x,y){
+      const operator = btn.id;
+      let result;
+      switch(operator){
+        case "add":
+          result = x+y;
+          break;
+        case "sub":
+          result = x-y;
+          break;
+        case "mul":
+          result = x*y;
+          break;
+        case "div":
+          y===0? result = "0은 나누기 불가능": result=x/y;
+          break;
+        default:
+          result = "잘못된 연산"
+      }
+      output.textContent = result;
+    }
+   
+
+  </script>
 </body>
 </html>

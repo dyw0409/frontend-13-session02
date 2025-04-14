@@ -14,6 +14,22 @@
 
   <p id="result"></p>
 
-  <script src="index.js"></script>
+  <script>
+    const num1 = document.getElementById("num1");
+    const num2 = document.getElementById("num2");
+    const output = document.getElementById("result");  
+    document.addEventListener("keydown", function(e) {
+      if ((document.activeElement === num1 || document.activeElement === num2) && e.key === "Enter") {
+      add();
+      }
+    });
+  function add(){ 
+      const x = Number(num1.value);
+      const y = Number(num2.value);
+      isNaN(x) ===true || isNaN(y)===true || x===0 || y===0? output.textContent = "숫자인지 확인해주세요": output.textContent=x+y;      
+  }
+
+    
+  </script>
 </body>
 </html>
