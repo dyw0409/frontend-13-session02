@@ -1,14 +1,10 @@
-const  num =(a,callback) => {
-    let result = a;
-    callback(result);
+const formatName = (name,callback)=>{
+    return callback(name);
 }
 
-const changenum = (result) =>{
-    console.log(result.toUpperCase());
-}
+const upperCase = name => name.toUpperCase();
+const greeting = name => name.toLowerCase();
 
-const greeting = (result) => {
-    console.log(result.toLowerCase());
-}
-num('wdy', changenum);
-num('wdy', greeting);
+
+console.log(formatName("wdy", upperCase));
+console.log(formatName("wdy", greeting)); 

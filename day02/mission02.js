@@ -1,19 +1,9 @@
-let arr = [1,2,3];
-       
-
-const mapWithCallback = (arr, callback) => {
-     let result = arr.map(item => item); 
-     callback(result);
-}
-const calldouble = (result) => {
- result.push('double');
- console.log(result);
+const mapWithCallback = (arr, callback)=>{
+     return arr.map(callback);
 }
 
-const calladdTen = (result) => {
- result.push('addTen');
- console.log(result);
-}
+const double = n=> n*2;
+const addTen = n => n+20;
 
-mapWithCallback(arr,calldouble);
-mapWithCallback(arr,calladdTen);
+console.log(mapWithCallback([1, 2, 3], double));
+console.log(mapWithCallback([1, 2, 3], addTen));
